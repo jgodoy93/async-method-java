@@ -1,4 +1,4 @@
-package com.jona.asynexample.asyncExample;
+package com.jona.asynexample;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

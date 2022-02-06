@@ -1,4 +1,4 @@
-package com.jona.asynexample.asyncExample;
+package com.jona.asynexample;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

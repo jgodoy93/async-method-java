@@ -37,7 +37,20 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
+		
+		<dependency>
+    		<groupId>org.openapitools</groupId>
+    		<artifactId>jackson-databind-nullable</artifactId>
+    		<version>0.2.1</version>
+		</dependency>
+		<dependency>
+		    <groupId>io.springfox</groupId>
+		    <artifactId>springfox-swagger2</artifactId>
+		    <version>2.9.2</version>
+		</dependency>
 	</dependencies>
+	
+	
 
 	<build>
 		<plugins>
@@ -53,7 +66,37 @@
 					</excludes>
 				</configuration>
 			</plugin>
+			
+				<plugin>
+    <groupId>org.openapitools</groupId>
+    <artifactId>openapi-generator-maven-plugin</artifactId>
+    <version>5.1.0</version>
+    <executions>
+        <execution>
+            <goals>
+                <goal>generate</goal>
+            </goals>
+            <configuration>
+                <inputSpec>
+                    ${project.basedir}/src/main/resources/api.yml
+                </inputSpec>
+                <generatorName>spring</generatorName>
+                <apiPackage>com.jona.asyncexample.openapi.api</apiPackage>
+                <modelPackage>com.jona.asyncexample.openapi.model</modelPackage>
+                <supportingFilesToGenerate>
+                    ApiUtil.java
+                </supportingFilesToGenerate>
+                <configOptions>
+                    <delegatePattern>true</delegatePattern>
+                    <interfaceOnly>true</interfaceOnly>
+                </configOptions>
+            </configuration>
+        </execution>
+    </executions>
+</plugin>
 		</plugins>
 	</build>
+	
+
 
 </project>
